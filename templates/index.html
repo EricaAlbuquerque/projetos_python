@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <html lang="pt-br">
+  <head>
+    <meta charset="utf-8 ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flask- index</title>
+  </head>
+  <body>
+    <h1>Seja bem-vindo"</h1>
+    <h1>Olá {%if name%}
+             {{name}} 
+            {%endif%}!
+     </h1>
+    <form method="POST">
+      <!--inserir campo oculto-->
+      {{form.hidden_tag()}} 
+      <!--dados da label campos (perguntas)-->
+      {{form.name.label}}{{form.name}} {{form.submit}}
+      
+  </body>
+</html>

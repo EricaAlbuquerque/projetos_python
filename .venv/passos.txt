@@ -1,0 +1,68 @@
+----AMBIENTE PREPAPARÇÂO
+1-criar virtial env : 
+   py -3 -m venv .env
+ativar :
+   .venv/Scripts/activate.bat
+2-Instalar Flask
+    pip install Flask
+3 Verificar versão 
+    Flask --version 
+4-Guardar as dependencias
+    pip freeze >requeriments.txt
+
+-----CONFIGURAÇÃO DO PRIMEIRO PROJETO
+(Certifique que seu ambiente virtual esta ativo e continue)
+1- (Fora do env) criar arquivo app.py
+2-Importar Flask
+3-criar rotas 
+    #criar uma rota
+    @app.route('/')
+    def index():
+       return '<h1>Hello World !</h1>'
+4-Setar o arquivo que subira do servidor 
+    >>set FLASK_APP=app.py 
+    >>flask run 
+Verificar no navegador direcionado o 'Hello world"
+-----CRIANDO TEMPLATES
+1-criar arquivo .hmtl
+2-renderizar TEMPLATES
+3- criar templates rotas
+4- criar paramentros de url com rotas dinamicas /name >>{{name}}
+
+-------CRIAR FORMULARIO
+1-instalar dependencias flask-wtf >>> pip install flask-wtf
+2-Atualizar o requeriments.txt
+3-No arquivo app.py importar aa dependencia e os campos do formulario
+    from wtform import StringField,SubmitField 
+  
+4-encriptar do app para proteção usando SEVRET_KEY
+5-criar labels do form numa classe
+  class NameForm(FlaskForm):
+    name=StringField('Qual é os eu nome ',validators=[DataRequired()])
+    submit=SubmitField('submit')
+6-Colocar condição de validação dos formularios
+7-usar o jinja no index.hmtl para renderizar o formulario   
+
+8-criar form.py
+   refatorar codigo de formulario e imports
+
+
+----ORMs do flask
+1-criar arquivo config.py
+   colocar as atribuiçoes de banco de dados e segurança
+2- chamar o config.py para o app
+3 - instalar migraçoes >> pip install Flask-Migrate
+4-chamar o migrate para app   
+5-instalar sql alchemy (pip install flask-sqlalchemy)
+6-criar pasta models e dentro arquivo User.py e configurar serializador
+7- imprtar models.User para o app
+8- configurar o arquivo User
+---Criar as Migraçoes
+1- Crie pasta migration de dentro outra versions
+2- Execute os comandos :
+    flask db init
+    flask db migrate
+    flask db upgrade
+---GERAR TABELAS  
+1-importamos o banco de dados no dBeaver  
+2-utilizu-se o dBeaver para visualizar as tabelas(migraçoes,user)
